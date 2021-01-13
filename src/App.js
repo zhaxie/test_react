@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+/*
+ * @Date         : 2021-01-13 11:20:24
+ * @LastEditors  : cxx
+ * @LastEditTime : 2021-01-13 17:47:59
+ * @FilePath     : \test_react\src\App.js
+ */
+import React, { Component } from 'react';
+import Home from './views/tabPages/home/home.jsx';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  render() {
+    return (
+      <div>
+        <Home></Home>
+      </div>
+    )
+  }
 }
-
-export default App;
