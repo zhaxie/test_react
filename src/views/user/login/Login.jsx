@@ -5,84 +5,83 @@ class Login extends Component {
         super(props);
 
         this.state = {
-            loginInfoObj: {
-                userName: {
-                    placeholder: '请输入用户名',
-                    value: 22333,
-                },
-                password: {
-                    placeholder: '请输入用户名',
-                    value: 11,
-                }
-            }
+
+            inputList: [{
+                label: '用户名',
+                placeholder: '请输入用户名',
+                value: '',
+            }, {
+                label: '密码',
+                placeholder: '请输入密码',
+                value: '',
+            },
+            ]
         }
     }
 
-    handleInput = (e, stateKey) => {
-        // const stateKeyList = stateKey.split('-');
+    componentDidMount() {
 
 
-        // const loginInfoObj = this.state.loginInfoObj;
-        // loginInfoObj[stateKeyList[1]][stateKeyList[2]] = e.target.value;
+    }
 
-        // let current;
-        // let stateKeyListLen = stateKeyList.length;
-
-        // stateKeyList.forEach((item, index) => {
-
-        //     if (index === 0) {
-        //         current = this.state[item];
-        //     } else {
-
-        //         if (index === stateKeyListLen - 1) {
-        //             current[item][stateKeyListLen - 2] = e.target.value;
-        //         } else {
-        //             current = current[item];
-        //         }
-        //     }
+    handleInput = (loginInfoObj) => {
+        console.info('loginInfoObj', loginInfoObj);
+        return;
+        // this.setState({
+        //     ['loginInfoObj.userName.value']: 1212121212
         // })
 
-        // loginInfoObj[key].value = e.target.value;
+        // console.info('loginInfoObj', this.state);
+        // return;
+        // console.info('loginInfoObj', loginInfoObj);
 
-        console.info('stateKey', stateKey);
+        // let changeVal = (stateKey, startState) => {
+        //     for (let key in stateKey) {
+        //         const current = stateKey[key];
+        //         const dataType = current.__proto__.constructor;
 
-        this.setState({
-            loginInfoObj: Object.assign(this.state.loginInfoObj, stateKey)
-        });
-        // console.info('this.state', this.state);
+        //         if (dataType === Object) {
+        //             changeVal(stateKey[key], startState[key]);
+        //         } else if (dataType === Number || dataType === String) {
+        //             startState[key] = stateKey[key];
+        //         }
+        //     }
+        // }
+
+        // changeVal(loginInfoObj, this.state);
+
+        // this.setState({
+        //     loginInfoObj: this.state.loginInfoObj
+        // })
+
     }
     render() {
         return (
             <div>
+                {/* <a target="_blank" rel="noreferrer" href="http://wpa.qq.com/msgrd?v=3&uin=1817147560&site=qq&menu=yes">测试跳转</a> */}
+                {/* <a target="_blank" rel="noreferrer" href="mqqwpa://im/chat?chat_type=wpa&uin=1234567&version=1&src_type=web&web_src=oicqzone.com">测试跳转22</a> */}
                 {
-                    (() => {
-                        let userInfoJsxList = [];
-                        let { loginInfoObj } = this.state;
+                    this.state.inputList.map((item, index) => (
+                        <div key={index}>
+                            <div>{item.label}</div>
+                            <input
+                                type="text"
 
-                        for (let key in loginInfoObj) {
-                            const item = loginInfoObj[key];
+                                
+                                placeholder={item.placeholder}
+                                value={item.value}
+                                onChange={(e) => {
+                                    let inputList = this.state.inputList;
 
-                            userInfoJsxList.push(
-                                <input
-                                    type="text"
-                                    key={key}
-                                    placeholder={item.placeholder}
-                                    value={item.value}
-                                    onInput={(e,) => this.handleInput(e,  {
-                                        loginInfoObj: {
-                                            [key]: {
-                                                value: e.target.value
-                                            }
-                                        }
-                                    })}
-                                />);
-                        }
+                                    inputList[index].value = e.target.value;
 
-                        return userInfoJsxList;
-                    })()
+                                    this.setState({
+                                        inputList
+                                    });
+                                }} />
+                        </div>
+                    ))
                 }
-                <a target="_blank" rel="noreferrer" href="http://wpa.qq.com/msgrd?v=3&uin=1817147560&site=qq&menu=yes">测试跳转</a>
-                <a target="_blank" rel="noreferrer" href="mqqwpa://im/chat?chat_type=wpa&uin=1234567&version=1&src_type=web&web_src=oicqzone.com">测试跳转22</a>
             </div>
         );
     }
