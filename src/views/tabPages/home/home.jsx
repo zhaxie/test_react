@@ -1,31 +1,21 @@
 /*
  * @Date         : 2021-01-13 11:27:13
  * @LastEditors  : cxx
- * @LastEditTime : 2021-01-13 17:56:25
+ * @LastEditTime : 2021-01-23 16:01:28
  * @FilePath     : \test_react\src\views\tabPages\home\home.jsx
  */
 
 import React, { Component } from 'react';
-import homeCss from 'views/tabPages/home/home.module.css';
 import TabBar from 'components/TabBar.jsx';
 import Login from 'views/user/login/Login.jsx';
+import {  NavLink } from "react-router-dom";
 
 export default class Home extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
+        this.state = {
             account: 0,
         };
-    }
-
-    handleAddAccount = (account) => {
-        this.setState({
-            account: account + 2
-        });
-    }
-
-    hanldeTabItemChange = (currentTabIndex) => {
-        console.info('currentTabIndex', currentTabIndex);
     }
 
     getTableBtnList = () => {
@@ -35,18 +25,23 @@ export default class Home extends Component {
             title: '个人中心'
         }];
     }
- 
+
     render() {
         return (
             <div>
-                <div
-                    className={"d-flex align-items-center justify-content-center" + homeCss.home}
-                    style={{ fontSize: '20px', color: 'blue' }}
-                    onClick={() => this.handleAddAccount(this.state.account)}>
-                    {'数量：' + this.state.account}
+                <NavLink to="/blog/21212" activeStyle={{
+                    fontWeight: "bold",
+                    color: "red"
+                }}>
+                    BlogPost
+                </NavLink>
+                <div style={{ margin: '20px' }}>
+                    <NavLink to="/userCenter?type=1" activeClassName="hurray">
+                        跳转到个人中心
+                    </NavLink>
                 </div>
                 <Login></Login>
-                <TabBar 
+                <TabBar
                     tabBtnList={this.getTableBtnList}
                     onChange={this.hanldeTabItemChange}
                 ></TabBar>

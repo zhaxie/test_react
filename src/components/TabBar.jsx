@@ -37,12 +37,12 @@ class TabBar extends Component {
             >
                 {this.props.tabBtnList().map((item, index) => {
                     return (
-                        <div
-                            className={"col text-center"}
-                            key={item.title}
-                            style={index === this.state.currentTabActiveIndex ? cssStyle.tabActive : {}}
-                            onClick={() => this.handleTapTabBarItem(index)}
-                        >{item.title}</div>
+                            <div
+                                className={"col text-center"}
+                                key={item.title}
+                                style={index === this.state.currentTabActiveIndex ? cssStyle.tabActive : {}}
+                                onClick={() => this.handleTapTabBarItem(index)}
+                            >{item.title}</div>
                     )
                 })}
             </div>

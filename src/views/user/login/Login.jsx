@@ -66,8 +66,6 @@ class Login extends Component {
                             <div>{item.label}</div>
                             <input
                                 type="text"
-
-                                
                                 placeholder={item.placeholder}
                                 value={item.value}
                                 onChange={(e) => {
