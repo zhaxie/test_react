@@ -1,41 +1,29 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, Link, Route } from 'react-router-dom';
-import './App.css';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-)
+import Home from 'views/tabPages/home/home.jsx';
+import UserCenter from 'views/tabPages/userCenter/userCenter.jsx';
+import userList from 'views/user/userList/userList.jsx';
 
-const About = () => (
-  <div>
-    <h2>About</h2>
-  </div>
-)
 
-const Product = () => (
-  <div>
-    <h2>Product</h2>
-  </div>
-)
+export default class App extends Component {
 
-class App extends Component {
+  componentDidMount(){
+    console.info('this', this);
+
+  };
+  
   render() {
     return (
-      <Router>
-        <div className="App">
-          <Link to="/">Home</Link>
-          <Link to="/About">About</Link>
-          <Link to="/Product">Product</Link>
-          <hr/>
-          <Route path="/" exact component={Home}></Route>
-          <Route path="/about" component={About}></Route>
-          <Route path="/product" component={Product}></Route>
-        </div>
-      </Router>
+      <BrowserRouter>
+        <Route path="/" exact component={Home} />
+        <Route path="/userCenter" component={UserCenter} />
+        <Route path="/userList" component={userList} />
+        <Switch>
+          <Route path="/blog/:slug">
+          </Route>
+        </Switch>
+      </BrowserRouter>
     );
   }
 }
-
-export default App;

@@ -1,0 +1,44 @@
+// 模块：用户信息
+.user-info-modules {
+    background-color: #fff;
+    box-shadow: 0rem 0.1rem 0.24rem 0.01rem rgba(218, 218, 218, 0.5);
+
+    .user-header {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        overflow: hidden;
+        background-color: #f4f4f4;
+    }
+
+    .user-name{
+        font-size: 0.8rem;
+    }
+
+    .login-out-btn{
+        border: 1px solid #666;
+        border-radius: 0.2rem;
+        font-size: 0.7rem;
+        color: #333;
+    }
+}
+
+// 模块：分类入口
+.entry-list-modules {
+    margin: 1rem;
+
+    .entry-item {
+        margin-right: 0.64rem;
+        margin-bottom: 0.64rem;
+        padding-bottom: 53%;
+        background-color: #ffffff;
+        box-shadow: 0rem 0.1rem 0.24rem 0.01rem rgba(218, 218, 218, 0.5);
+        border-radius: 0.1rem;
+
+        .title {
+            font-size: 0.8rem;
+            line-height: 1rem;
+            color: #333333;
+        }
+    }
+}
