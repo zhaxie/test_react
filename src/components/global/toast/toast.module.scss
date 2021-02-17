@@ -1,0 +1,10 @@
+
+.toast-box{
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 2px;
+    font-size: 0.7rem;
+    color: #fff;
+}

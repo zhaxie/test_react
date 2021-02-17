@@ -4,7 +4,6 @@ import moduleCss from "./home.module.scss";
 import XxImg from 'components/global/xxImg/xxImg.jsx';
 import { Link } from 'react-router-dom';
 
-
 export default class Home extends Component {
   constructor(props) {
     super(props);
@@ -51,10 +50,10 @@ export default class Home extends Component {
             <div className={"d-flex align-items-center flex-wrap " + moduleCss['entry-list-modules']}>{
               this.state.entryList.map((item, index) => {
                 return (
-                  <Link 
-                    className="col-6" 
-                    key={index} 
-                    to={item.path} 
+                  <Link
+                    className="col-6"
+                    key={index}
+                    to={item.path}
                     onClick={() => this.handleOpenToWin(item)}
                   >
                     <div className={"position-relative " + moduleCss['entry-item']}>
@@ -70,6 +69,23 @@ export default class Home extends Component {
             </div>
           </div>
         </div>
+
+
+        <div
+          onClick={() => {
+            this.$toast({
+              msg: 'toast'
+            })
+          }}
+        >显示toast</div>
+
+        <div
+          onClick={() => {
+            this.$toast({
+              msg: 'toast22'
+            })
+          }}
+        >显示toast22</div>
       </div>
     );
   }
